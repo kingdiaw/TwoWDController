@@ -1,0 +1,44 @@
+#######################################
+# Classes (KEYWORD1)
+#######################################
+TwoWDController	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+begin	KEYWORD2
+startAutoUpdate	KEYWORD2
+stopAutoUpdate	KEYWORD2
+drive	KEYWORD2
+driveSpeed	KEYWORD2
+stop	KEYWORD2
+updatePID	KEYWORD2
+resetPID	KEYWORD2
+resetEncoders	KEYWORD2
+readEncoder	KEYWORD2
+getLeftSpeed	KEYWORD2
+getRightSpeed	KEYWORD2
+getLeftOutput	KEYWORD2
+getRightOutput	KEYWORD2
+getLeftPosition	KEYWORD2
+getRightPosition	KEYWORD2
+getSpeedRPM	KEYWORD2
+setPIDConstants	KEYWORD2
+getPIDConstants	KEYWORD2
+setRobotParameters	KEYWORD2
+isAutoUpdateRunning	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+MODE_ESP32_GPIO	LITERAL1
+MODE_PCF8574_IO	LITERAL1
+DEFAULT_WHEEL_DIAMETER	LITERAL1
+DEFAULT_ENCODER_RESOLUTION	LITERAL1
+DEFAULT_PID_INTERVAL	LITERAL1
+DEFAULT_GEAR_REDUCTION	LITERAL1
+DEFAULT_Kp	LITERAL1
+DEFAULT_Kd	LITERAL1
+DEFAULT_Ki	LITERAL1
+DEFAULT_Ko	LITERAL1
+MAX_PWM	LITERAL1
