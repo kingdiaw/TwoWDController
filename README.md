@@ -1,11 +1,4 @@
-Here's a comprehensive `README.md` file for your TwoWDController library:
-
-```markdown
 # TwoWDController Library
-
-[![arduino-library-badge](https://www.ardu-badge.com/badge/TwoWDController.svg?)](https://www.arduino-badge.com/TwoWDController)
-[![Platform: ESP32](https://img.shields.io/badge/platform-ESP32-blue.svg)](https://www.espressif.com/en/products/socs/esp32)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A comprehensive 2WD mobile robot controller library for ESP32 with PID speed control, encoder feedback, and automatic PID updates using Ticker.
 
@@ -47,7 +40,7 @@ A comprehensive 2WD mobile robot controller library for ESP32 with PID speed con
 
 ### Method 2: Manual Installation
 
-1. Download the latest release from [GitHub Releases](https://github.com/yourusername/TwoWDController/releases)
+1. Download the latest release from [GitHub Releases](https://github.com/kingdiaw/TwoWDController/releases)
 2. Extract the ZIP file
 3. Copy the `TwoWDController` folder to your Arduino libraries directory:
    - **Windows:** `Documents\Arduino\libraries\`
@@ -60,23 +53,12 @@ A comprehensive 2WD mobile robot controller library for ESP32 with PID speed con
 
 ```bash
 cd ~/Arduino/libraries/
-git clone https://github.com/yourusername/TwoWDController.git
+git clone https://github.com/kingdiaw/TwoWDController.git
 ```
 
 Then install the PCF8574_library dependency as described in Method 2.
 
 ## Wiring Diagrams
-
-### Direct GPIO Mode (ESP32)
-
-| Motor Driver | ESP32 Pin |
-|-------------|-----------|
-| Left Enable | GPIO 2 |
-| Left IN1 | GPIO 4 |
-| Left IN2 | GPIO 5 |
-| Right Enable | GPIO 15 |
-| Right IN1 | GPIO 18 |
-| Right IN2 | GPIO 19 |
 
 | Encoder | ESP32 Pin |
 |---------|-----------|
@@ -116,8 +98,8 @@ Encoder pins connect directly to ESP32 (same as GPIO mode).
 TwoWDController robot(
   0x20,          // I2C address
   15, 2,         // left enable, right enable
-  TwoWDController::P2, TwoWDController::P3,  // Left motor IN1, IN2
-  TwoWDController::P0, TwoWDController::P1,  // Right motor IN1, IN2
+  P2, P3,        // Left motor IN1, IN2
+  P0, P1,        // Right motor IN1, IN2
   18, 19, 12, 13  // encoders: leftA, leftB, rightA, rightB
 );
 
@@ -145,41 +127,15 @@ void loop() {
 }
 ```
 
-### Example 2: Direct GPIO Mode
-
-```cpp
-#include <TwoWDController.h>
-
-// For direct GPIO control
-TwoWDController robot(
-  2, 4, 5,       // left motor: enable, IN1, IN2
-  15, 18, 19,    // right motor: enable, IN1, IN2
-  18, 19, 12, 13 // encoders: leftA, leftB, rightA, rightB
-);
-
-void setup() {
-  robot.begin();
-  robot.startAutoUpdate(0.033);
-  robot.drive(0.15, 0.15);  // Move forward at 0.15 m/s
-}
-
-void loop() {
-  // PID runs automatically
-  delay(1000);
-  Serial.print("Left speed: ");
-  Serial.println(robot.getLeftSpeed());
-}
-```
-
-### Example 3: Percentage Speed Control
+### Example 2: Percentage Speed Control
 
 ```cpp
 #include <TwoWDController.h>
 
 TwoWDController robot(
   0x20, 15, 2, 
-  TwoWDController::P2, TwoWDController::P3,
-  TwoWDController::P0, TwoWDController::P1,
+  P2, P3,
+  P0, P1,
   18, 19, 12, 13
 );
 
@@ -204,13 +160,6 @@ void loop() {}
 ## API Reference
 
 ### Constructor
-
-#### GPIO Mode
-```cpp
-TwoWDController(int leftEnable, int leftIn1, int leftIn2,
-                int rightEnable, int rightIn1, int rightIn2,
-                int leftEncA, int leftEncB, int rightEncA, int rightEncB)
-```
 
 #### I2C Mode (PCF8574)
 ```cpp
