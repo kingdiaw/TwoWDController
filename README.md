@@ -207,12 +207,6 @@ TwoWDController(uint8_t i2cAddress,
 ### Pre-defined Constants
 
 ```cpp
-// PCF8574 Pin Mapping
-TwoWDController::P0  // Pin 0 on PCF8574
-TwoWDController::P1  // Pin 1 on PCF8574
-TwoWDController::P2  // Pin 2 on PCF8574
-// ... up to P7
-
 // Default Robot Parameters
 TwoWDController::DEFAULT_WHEEL_DIAMETER      // 0.067 meters
 TwoWDController::DEFAULT_ENCODER_RESOLUTION  // 3950 ticks/rev
@@ -235,8 +229,8 @@ TwoWDController::MAX_PWM     // 255
 #include <TwoWDController.h>
 
 TwoWDController robot(0x20, 15, 2, 
-                      TwoWDController::P2, TwoWDController::P3,
-                      TwoWDController::P0, TwoWDController::P1,
+                      P2, P3,
+                      P0, P1,
                       18, 19, 12, 13);
 
 unsigned long lastPrint = 0;
@@ -278,8 +272,8 @@ void loop() {
 #include <TwoWDController.h>
 
 TwoWDController robot(0x20, 15, 2, 
-                      TwoWDController::P2, TwoWDController::P3,
-                      TwoWDController::P0, TwoWDController::P1,
+                      P2, P3,
+                      P0, P1,
                       18, 19, 12, 13);
 
 unsigned long lastPIDUpdate = 0;
@@ -351,9 +345,8 @@ Contributions are welcome! Please:
 
 ## Support
 
-- **Documentation:** [GitHub Wiki](https://github.com/yourusername/TwoWDController/wiki)
-- **Issues:** [GitHub Issues](https://github.com/yourusername/TwoWDController/issues)
-- **Email:** your.email@example.com
+- **Issues:** [GitHub Issues](https://github.com/kingdiaw/TwoWDController/issues)
+- **Email:** kingdiawehsut@gmail.com
 
 ## Acknowledgements
 
