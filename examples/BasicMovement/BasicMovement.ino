@@ -4,10 +4,10 @@
 // Note: P0, P1, P2, P3 are defined in PCF8574.h
 TwoWDController robot(
   0x20,          // I2C address
-  15, 2,         // left enable, right enable (PWM pins on ESP32)
+  4, 2,         // left enable, right enable (PWM pins on ESP32)
   P2, P3,        // Left motor IN1, IN2 on PCF8574 (P2, P3 from library)
   P0, P1,        // Right motor IN1, IN2 on PCF8574 (P0, P1 from library)
-  18, 19, 12, 13 // encoders: leftA, leftB, rightA, rightB (GPIO pins)
+  18, 19, 25, 13 // encoders: leftA, leftB, rightA, rightB (GPIO pins)
 );
 
 void setup() {
