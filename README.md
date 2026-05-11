@@ -64,7 +64,7 @@ Then install the PCF8574_library dependency as described in Method 2.
 |---------|-----------|
 | Left Encoder A | GPIO 18 |
 | Left Encoder B | GPIO 19 |
-| Right Encoder A | GPIO 12 |
+| Right Encoder A | GPIO 25 |
 | Right Encoder B | GPIO 13 |
 
 ### I2C Mode (with PCF8574)
@@ -82,7 +82,7 @@ Connect motor driver to PCF8574:
 - Right IN2 → P1
 
 Connect PWM pins directly to ESP32:
-- Left Enable → GPIO 15
+- Left Enable → GPIO 4
 - Right Enable → GPIO 2
 
 Encoder pins connect directly to ESP32 (same as GPIO mode).
@@ -97,10 +97,10 @@ Encoder pins connect directly to ESP32 (same as GPIO mode).
 // For PCF8574 I2C Mode
 TwoWDController robot(
   0x20,          // I2C address
-  15, 2,         // left enable, right enable
+  4, 2,         // left enable, right enable
   P2, P3,        // Left motor IN1, IN2
   P0, P1,        // Right motor IN1, IN2
-  18, 19, 12, 13  // encoders: leftA, leftB, rightA, rightB
+  18, 19, 25, 13  // encoders: leftA, leftB, rightA, rightB
 );
 
 void setup() {
@@ -133,10 +133,10 @@ void loop() {
 #include <TwoWDController.h>
 
 TwoWDController robot(
-  0x20, 15, 2, 
+  0x20, 4, 2, 
   P2, P3,
   P0, P1,
-  18, 19, 12, 13
+  18, 19, 25, 13
 );
 
 void setup() {
@@ -228,10 +228,10 @@ TwoWDController::MAX_PWM     // 255
 ```cpp
 #include <TwoWDController.h>
 
-TwoWDController robot(0x20, 15, 2, 
+TwoWDController robot(0x20, 4, 2, 
                       P2, P3,
                       P0, P1,
-                      18, 19, 12, 13);
+                      18, 19, 25, 13);
 
 unsigned long lastPrint = 0;
 
@@ -271,10 +271,10 @@ void loop() {
 ```cpp
 #include <TwoWDController.h>
 
-TwoWDController robot(0x20, 15, 2, 
+TwoWDController robot(0x20, 4, 2, 
                       P2, P3,
                       P0, P1,
-                      18, 19, 12, 13);
+                      18, 19, 25, 13);
 
 unsigned long lastPIDUpdate = 0;
 
